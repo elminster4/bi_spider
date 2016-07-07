@@ -10,6 +10,7 @@ import scrapy
 
 class BuilditItem(scrapy.Item):
 	# define the fields for your item here like:
-	external_urls = scrapy.Field()
-	internal_urls = scrapy.Field()
+        url = scrapy.Field()
+	external_links = scrapy.Field()
+	internal_links = scrapy.Field()
 	images = scrapy.Field()
