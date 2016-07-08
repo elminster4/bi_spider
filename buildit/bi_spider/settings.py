@@ -9,10 +9,18 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'bi_spider'
+BOT_NAME = 'buildit_spider'
 
 SPIDER_MODULES = ['bi_spider.spiders']
 NEWSPIDER_MODULE = 'bi_spider.spiders'
+LOG_LEVEL = 'INFO'
+
+
+site_map_spider = {
+    'map_file': '/tmp/buildit_map',
+    'crawl_domain': 'wiprodigital.com',
+    'start_urls': ['http://wiprodigital.com']
+}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -64,9 +72,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'bi_spider.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'bi_spider.pipelines.SiteMapJsonExportPipeline': 100,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

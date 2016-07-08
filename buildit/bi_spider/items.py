@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 
-# Define here the models for your scraped items
-#
-# See documentation in:
-# http://doc.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 
 
-class BuilditItem(scrapy.Item):
-	# define the fields for your item here like:
-        url = scrapy.Field()
-	external_links = scrapy.Field()
-	internal_links = scrapy.Field()
-	images = scrapy.Field()
+def to_list(value):
+	''' Converts a list-like object (like a set) to a list, for canonicalisation down the line '''
+	return list(value)	
+
+class SiteMapItem(scrapy.Item):
+	''' One 'unit' of a site map '''
+	url = scrapy.Field()
+	external_links = scrapy.Field( serializer=to_list )
+	internal_links = scrapy.Field( serializer=to_list )
+	images = scrapy.Field( serializer=to_list )
+
+
