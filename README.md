@@ -15,13 +15,9 @@
 * There is one unit test, checking that the parsing is correct; more could be added to check that the file is correctly output, that the config makes sense, etc. Scrapy encourages using function contracts instead of unit tests, as it doesn't expose all the internals required to have unit tests be properly separated. I haven't looked much into that, as most of them need to be user-defined. It should certainly be considered, provided they can be integrated into regular unit tests ongoing on the wider system.
 
 ## Run
-* Install the scrapy module:  
-		<pip install scrapy>
-* Run the spider, e.g. from the buildit/ directory: 
-		<scrapy runspider bi_spider/spiders/site_map.py -a config_module_name=bi_spider.settings>
+* Install the scrapy module: `pip install scrapy`
+* Run the spider, e.g. from the buildit/ directory: `scrapy runspider bi_spider/spiders/site_map.py -a config_module_name=bi_spider.settings`
 
 ## Unit testing
-* Install the phpunit module if not present already: 
-		<pip install phpunit>
-* from tests/, run 
-		<pytest SiteMapSpiderTest.py>
+* Install the phpunit module if not present already: `pip install phpunit`
+* from tests/, run `pytest SiteMapSpiderTest.py`
